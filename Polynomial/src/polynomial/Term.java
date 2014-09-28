@@ -9,19 +9,17 @@ package polynomial;
 /**
  *
  * @author NicoSam
+ * @param <x>
  */
-public class Term implements Comparable  {
-    private int coeficiente;
+public class Term <x extends Comparable> implements Comparable  {
+    private x coeficiente;
     private int exponente;
     
     public Term()
     {
-        coeficiente= 0;
-        exponente = -1;
-               
     }
     
-    public Term(int c, int e)
+    public Term(x c, int e)
     {
         coeficiente = c ; 
         if(!(e<0))
@@ -31,7 +29,7 @@ public class Term implements Comparable  {
        
     }
     
-    public int getCoeficiente()
+    public x getCoeficiente()
     {
         return coeficiente;
         
@@ -43,7 +41,7 @@ public class Term implements Comparable  {
         
     }       
     
-    public void setCoeficiente(int c){
+    public void setCoeficiente(x c){
         coeficiente = c;
     }
     
@@ -56,6 +54,8 @@ public class Term implements Comparable  {
         
     }
     public int compareTo(Object x){
-        return -1;
+       Term c = (Term)x;
+       return this.exponente - c.exponente; 
+       
     }
 }
